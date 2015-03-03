@@ -1,10 +1,10 @@
 <?php
         $servername = "localhost";
         $username = "root";
-        $password ='Pa$$w0rd';
+        $password ="@isling1966";
         $dbname ="FypDB";
         $conn = mysqli_connect($servername, $username, $password, $dbname);
-	$query = "SELECT * FROM userAcc WHERE username='8bit'"; 
+	$query = "SELECT * FROM userAcc'"; 
 	$result = mysqli_query($conn, $query); 
 
 
