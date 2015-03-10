@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.23, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.41, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: FypDB
 -- ------------------------------------------------------
--- Server version	5.6.23
+-- Server version	5.5.41-0ubuntu0.14.10.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,8 +26,9 @@ CREATE TABLE `category` (
   `catID` int(11) NOT NULL AUTO_INCREMENT,
   `description` varchar(1000) DEFAULT NULL,
   `subsNo` bigint(20) NOT NULL,
+  `name` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`catID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,6 +37,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
+INSERT INTO `category` VALUES (1,'Anything about books! Post what you want about books you are reading or are thinking about reading',0,'books'),(2,'Anything art related. Modern day, Classical Art or something you have created yourself. ',0,'art'),(3,'All things food related. From good recipes you have to good food from good restaurants. All things delicious! ',0,'food'),(4,'Things that you find funny be that an image or a story. Link it here.',0,'funny'),(5,'Whether it be an interesting/educational/funny video post them here to discuss. ',0,'videos'),(6,'All things Politics in Ireland. Discuss recent news and other various political related moves. ',0,'politics'),(7,'Be it PC or Console gaming everything about the gaming world. News/Review/Playthroughs.',0,'gaming'),(8,'Post anything that is TV show related from GOT to BB anything goes in relation to your shows. ',0,'tv'),(9,'All things movie related. From reviews to suggestions, indie movies to blockbusters. Anything that you think is worth discussing. ',0,'movies'),(10,'From inspiring images to beautiful scenery anything that you have take that you would like to share. ',0,'pictures'),(11,'Programming in all aspects from questions to queries all the way up to most recent changes in languages. Post your programming questions here. Only queries on ideas not questions in relation to debugging code!  ',0,'programming'),(12,'All things kernel related. Post anything in relation to your favorite distribution down to latest security notifications. ',0,'linux');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,7 +83,7 @@ CREATE TABLE `userAcc` (
   `passwd` varchar(255) NOT NULL,
   `emailAdd` varchar(350) DEFAULT NULL,
   PRIMARY KEY (`userID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,6 +92,7 @@ CREATE TABLE `userAcc` (
 
 LOCK TABLES `userAcc` WRITE;
 /*!40000 ALTER TABLE `userAcc` DISABLE KEYS */;
+INSERT INTO `userAcc` VALUES (1,'8bitProcessor','derp1234',NULL);
 /*!40000 ALTER TABLE `userAcc` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -102,4 +105,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-18 15:18:34
+-- Dump completed on 2015-03-03 23:04:25

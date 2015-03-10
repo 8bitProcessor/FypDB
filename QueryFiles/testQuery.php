@@ -1,20 +1,13 @@
 <?php
-        $servername = "localhost";
-        $username = "root";
-        $password ="@isling1966";
-        $dbname ="FypDB";
-        $conn = mysqli_connect($servername, $username, $password, $dbname);
-	$query = "SELECT * FROM userAcc'"; 
-	$result = mysqli_query($conn, $query); 
+        require("conn.php");
+        $username =$_POST['username'];
+        $passwd =$_POST['username'];
 
+        $query = "INSERT INTO userAcc(username, passwd) VALUES ($username, $passwd)";
+        $result = mysqli_query($conn, $query);
+        $response["success"]=1;
+        $response["message"]="User created ";
+        echo(json_encode($response));
 
-	while($row = mysqli_fetch_assoc($result)){
-		echo "Derp";
-		 $encode[] = $row; 
-	}
-	
-	echo json_encode($encode); 
-
-
-?>
+ ?>
 
