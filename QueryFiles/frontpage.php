@@ -1,12 +1,11 @@
 <?php
-	require('conn.php');
-	$query  ="SELECT name, description FROM category"; 	
-	$result =mysqli_query($conn, $query); 
+	require('conn.inc.php');
+	
 
-	while($row =mysqli_fetch_assoc($result)){ 
-		$output[] =$row; 
-	}
-	print(json_encode($output)); 
+
+
+
+
 
 
 

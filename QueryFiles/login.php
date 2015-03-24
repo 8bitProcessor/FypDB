@@ -12,11 +12,17 @@
 		}
 
 		$query ="SELECT userID, username, passwd FROM userAcc WHERE username='$username'";
-		$queryDB = mysqli_query($conn, $query) or die("Error in MySQL connection");
+		try{
+				$queryLogin = $dbhandle->query($query);
+		}catch(PDOException $e){
+			echo $e->getMessage();
+	    die();
+		}
+	//	$queryDB = mysqli_query($conn, $query) or die("Error in MySQL connection");
 		$login_ok =false;
-		if($queryDB){
-			$row=mysqli_fetch_array($queryDB);
-			if($password==$row['passwd']){
+		if($queryLogin->rowCount()>0){
+			$row=$queryLogin->fetch(PDO::FETCH_OBJ);
+			if($password==$row->passwd){
 				$login_ok=true;
 			}
 		}
@@ -29,20 +35,5 @@
 			$response["message"]="Username or Password was incorrect";
 			die(json_encode($response));
 		}
-	}else {
-?>
-		<h1>Login</h1>
-		<form action="login.php" method="post">
-		    Username:<br />
-		    <input type="text" name="username" placeholder="username" />
-		    <br /><br />
-		    Password:<br />
-		    <input type="password" name="password" placeholder="password" value="" />
-		    <br /><br />
-		    <input type="submit" value="Login" />
-		</form>
-		<a href="register.php">Register</a>
-	<?php
-}
-
+	}
 ?>
