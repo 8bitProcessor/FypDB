@@ -1,4 +1,4 @@
-<form action="register.php" method="post">
+<form action="login.php" method="post">
 
     Username:<br />
 

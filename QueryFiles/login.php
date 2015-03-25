@@ -6,6 +6,7 @@
 		$password = $_POST['password'];
 
 	if(empty($_POST['username']) || empty($_POST['password'])){
+			header('Content-type: application/json');
 			$response["success"]=0;
 			$response["message"]="Please enter your username and password";
 			die(json_encode($response));
@@ -27,10 +28,12 @@
 			}
 		}
 		if($login_ok){
+			header('Content-type: application/json');
 			$response["success"]=1;
 			$response["message"]="Login Successful!";
 			die(json_encode($response));
 		}else{
+			header('Content-type: application/json');			
 			$response["success"]=0;
 			$response["message"]="Username or Password was incorrect";
 			die(json_encode($response));
