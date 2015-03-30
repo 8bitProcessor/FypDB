@@ -1,6 +1,5 @@
 <?php
 	require("config.inc.php");
-
 	if(!empty($_POST)){
 		$username = $_POST['username'];
 		$password = $_POST['password'];
@@ -9,7 +8,8 @@
 			header('Content-type: application/json');
 			$response["success"]=0;
 			$response["message"]="Please enter your username and password";
-			die(json_encode($response));
+			echo json_encode($response);
+			die();
 		}
 
 		$query ="SELECT userID, username, passwd FROM userAcc WHERE username='$username'";
@@ -31,12 +31,14 @@
 			header('Content-type: application/json');
 			$response["success"]=1;
 			$response["message"]="Login Successful!";
-			die(json_encode($response));
+			echo json_encode($response);
+			die();
 		}else{
-			header('Content-type: application/json');			
+			header('Content-type: application/json');
 			$response["success"]=0;
 			$response["message"]="Username or Password was incorrect";
-			die(json_encode($response));
+			echo json_encode($response);
+			die();
 		}
 	}
 ?>

@@ -1,13 +1,9 @@
 <?php
-        require("conn.php");
-        $username =$_POST['username'];
-        $passwd =$_POST['username'];
-
-        $query = "INSERT INTO userAcc(username, passwd) VALUES ($username, $passwd)";
-        $result = mysqli_query($conn, $query);
-        $response["success"]=1;
-        $response["message"]="User created ";
-        echo(json_encode($response));
-
+    $response =array();
+    $response["Response"] =array();
+    $values["success"]= 1;
+    $values["message"]= "Message";
+    echo json_encode($values);
+    // array_push($response["Response"], $values);
+    // echo json_encode($response);
  ?>
-
