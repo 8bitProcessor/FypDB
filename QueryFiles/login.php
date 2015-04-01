@@ -1,13 +1,13 @@
 <?php
+header('Content-type: application/json');
 	require("config.inc.php");
 	if(!empty($_POST)){
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 
 	if(empty($_POST['username']) || empty($_POST['password'])){
-			header('Content-type: application/json');
 			$response["success"]=0;
-			$response["message"]="Please enter your username and password";
+			$response["message"]="Please enter both your username and password";
 			echo json_encode($response);
 			die();
 		}
@@ -19,7 +19,6 @@
 			echo $e->getMessage();
 	    die();
 		}
-	//	$queryDB = mysqli_query($conn, $query) or die("Error in MySQL connection");
 		$login_ok =false;
 		if($queryLogin->rowCount()>0){
 			$row=$queryLogin->fetch(PDO::FETCH_OBJ);
@@ -28,13 +27,11 @@
 			}
 		}
 		if($login_ok){
-			header('Content-type: application/json');
 			$response["success"]=1;
 			$response["message"]="Login Successful!";
 			echo json_encode($response);
 			die();
 		}else{
-			header('Content-type: application/json');
 			$response["success"]=0;
 			$response["message"]="Username or Password was incorrect";
 			echo json_encode($response);

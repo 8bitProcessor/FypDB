@@ -1,4 +1,5 @@
 <?php
+	header('Content-type: application/json');
 	require('config.inc.php');
 	$getFrontPage = "SELECT userAcc.username, threadsAll.userID, threadsAll.title, threadsAll.infoOrL FROM userAcc, threadsAll WHERE threadsAll.userID=userAcc.userID";
 		try{
