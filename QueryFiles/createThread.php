@@ -1,4 +1,6 @@
 <?php
-	require('conn.php');
+	header('Content-type: application/json');
+	require("config.inc.php");
+	
 
 ?>
