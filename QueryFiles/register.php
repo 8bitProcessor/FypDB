@@ -5,6 +5,13 @@ require("config.inc.php");
   $jsonObj = json_decode($jsonString, true);
   $username = $jsonObj['username'];
   $password = $jsonObj['password'];
+
+  if ($username=="" || $password=="") {
+    $response["success"] =0;
+    $response["message"]="Please enter both your username and password";
+    echo json_encode($response);
+    die();
+  }
         $query = "SELECT username FROM userAcc WHERE username='$username'";
         try{
             $result =$dbhandle->query($query);

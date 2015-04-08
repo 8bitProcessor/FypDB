@@ -1,7 +1,17 @@
 <?php
 	header('Content-type: application/json');
 	require('config.inc.php');
-	$getFrontPage = "SELECT userAcc.username, threadsAll.userID, threadsAll.title, threadsAll.infoOrL FROM userAcc, threadsAll WHERE threadsAll.userID=userAcc.userID";
+	$getFrontPage = "SELECT
+	threadsAll.title,
+	userAcc.username,
+	category.name,
+	threadsAll.score
+	FROM threadsAll
+	INNER JOIN userAcc
+	ON threadsAll.userID = userAcc.userID
+	INNER JOIN category
+	ON category.catID=threadsAll.categoryID
+	ORDER BY SCORE DESC;";
 		try{
 			$result = $dbhandle->query($getFrontPage);
 		}catch(PDOException $e){
@@ -12,6 +22,9 @@
 		while($row=$result->fetch()){
 				$encode = array();
 				$encode["title"]=$row["title"];
+				$encode["score"]=$row["score"];
+				$encode["title"]=$row["title"];
+				$encode["category"]=$row["name"];
 				$encode["username"]=$row["username"];
 				// $encode["infoOrL"]=$row["infoOrL"];
 

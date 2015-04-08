@@ -5,7 +5,12 @@ header('Content-type: application/json');
 	$jsonObj = json_decode($jsonString, true);
 	$username = $jsonObj['username'];
 	$password = $jsonObj['password'];
-
+	if ($username=="" || $password=="") {
+		$response["success"] =0;
+		$response["message"]="Please enter both your username and password";
+		echo json_encode($response);
+		die();
+	}
 		$query ="SELECT userID, username, passwd FROM userAcc WHERE username='$username'";
 		try{
 				$queryLogin = $dbhandle->query($query);
