@@ -1,10 +1,10 @@
 <?php
-  
+
 
 ?>
 
 
-<form action="login.php" method="post">
+<form action="vote.php" method="post">
 
     Username:<br />
 

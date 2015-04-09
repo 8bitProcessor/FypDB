@@ -4,6 +4,7 @@
 	$getFrontPage = "SELECT
 	threadsAll.title,
 	userAcc.username,
+	threadsAll.threadID,
 	category.name,
 	threadsAll.score
 	FROM threadsAll
@@ -21,6 +22,7 @@
 		$response["frontpage"]= array();
 		while($row=$result->fetch()){
 				$encode = array();
+				$encode['threadID']=$row['threadID'];
 				$encode["title"]=$row["title"];
 				$encode["score"]=$row["score"];
 				$encode["title"]=$row["title"];
