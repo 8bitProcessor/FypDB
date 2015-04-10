@@ -30,7 +30,7 @@
 		else{
 			$response["success"]=0;
 			$response["message"]="User details were incorrect";
-			$echo json_encode($response);
+			echo json_encode($response);
 		}
 	}
 	if($details_correct){
