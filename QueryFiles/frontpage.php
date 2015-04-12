@@ -6,6 +6,7 @@
 	userAcc.username,
 	threadsAll.threadID,
 	threadsAll.infoOrL,
+	threadsAll.typeNo,
 	category.name,
 	threadsAll.score
 	FROM threadsAll
@@ -27,6 +28,7 @@
 				$encode["title"]=$row["title"];
 				$encode["score"]=$row["score"];
 				$encode["link"]=$row["infoOrL"];
+				$encode["type"]=$row["typeNo"];
 				$encode["category"]=$row["name"];
 				$encode["username"]=$row["username"];
 				// $encode["infoOrL"]=$row["infoOrL"];

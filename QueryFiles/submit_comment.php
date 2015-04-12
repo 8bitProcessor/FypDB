@@ -32,21 +32,8 @@
   if($details_correct){
     $insertComment = "INSERT INTO comments (threadID, userID, score, comment) VALUES ($threadID, $user_id, 1, '$comment');";
     $result = $dbhandle->query($insertComment);
-    if($result){
-      $response["success"]=1;
-      $message["message"]="Your comment was posted";
-    }
-
-
-
-
-
+    $response["success"]=1;
+    $response["message"]="Your comment was successful";
+    echo json_encode($response);
   }
-
-
-
-
-
-
-
-  ?>
+?>
